@@ -1,0 +1,169 @@
+﻿@model Kalkulator.Models.Zarobki
+
+@{
+    ViewData["Title"] = "Wyniki";
+    Layout = null;
+}
+
+
+<head>
+    <link href="/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+
+<header>
+    <h1>Wyniki</h1>
+    <div>
+        <p>Licznik kłótni: 0</p>
+    </div>
+</header>
+
+<hr />
+<body>
+    <div class="wyniki">
+        <div class="wyniki-half">
+            <div class="wyniki-skladki">
+                <div class="wyniki-opis">
+                    @if (Convert.ToString(ViewData["Typ"]) == "brutto")
+                    {
+                        <p>Brutto: </p>
+                    }
+                    else
+                    {
+                        <p>Netto: </p>
+                    }
+                    <p>Składka chorobowa: </p>
+                    <p>Składka emerytalna: </p>
+                    <p>Składka rentowa: </p>
+                    <p>Składka zdrowotna: </p>
+                    <p>Zaliczka na podatek dochodowy: </p>
+                </div>
+                <div class="wyniki-wartosci">
+                    @if (Convert.ToString(ViewData["Typ"]) == "brutto")
+                    {
+                        <p>@System.Math.Round(Convert.ToDecimal(ViewData["KwotaInit"]),2) PLN</p>
+                    }
+                    else
+                    {
+                        <p>@System.Math.Round(Convert.ToDecimal(ViewData["KwotaInit"]),2) PLN</p>
+                    }
+                    @* <p>Miejsce: @ViewData["Miejsce"]</p>
+                    <p>Pow26: @ViewData["Pow26"]</p> *@
+                    @* <p>Darowizna: @System.Math.Round(Convert.ToDecimal(ViewData["Darowizny"]),2)</p> *@
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["Chorobowe"]),2) PLN</p>
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["Emerytalne"]),2) PLN</p>
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["Rentowe"]),2) PLN</p>
+                    @* <p>Po ZUSie: @System.Math.Round(Convert.ToDecimal(ViewData["PoZUS"]),2)</p> *@
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["Zdrowotne"]),2) PLN</p>
+                    @* <p>Koszty: @ViewData["Koszty"],00</p> *@
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["PodatekDochodowy"]),0),00 PLN</p>
+                    @* <p>@ViewData["Typ"]</p> *@
+                </div>
+            </div>
+            
+            <div class="wynik-brutto-netto">
+                @if (Convert.ToString(ViewData["Typ"]) == "brutto")
+                {
+                    <p>Netto: </p>
+
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["Result"]),2) PLN</p>
+                }
+                else if (Convert.ToString(ViewData["Typ"]) == "netto")
+                {
+                    <p>Brutto: </p>
+
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["Result"]),2) PLN</p>
+                }
+                else
+                {
+                    <p>Error: </p>
+
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["Result"]),2) PLN</p>
+                }
+            </div>
+        </div>
+        
+        <div class="wyniki-half">
+            <div class="wyniki-skladki">
+                <div class="wyniki-opis">
+                    <p>Netto: </p>
+                    <p>Składka chorobowa: </p>
+                    <p>Składka emerytalna: </p>
+                    <p>Składka rentowa: </p>
+                    <p>Składka zdrowotna: </p>
+                    <p>Zaliczka na podatek dochodowy: </p>
+                </div>
+                <div class="wyniki-wartosci">
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["NettoChart"]),2) %</p>
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["ChorChart"]),2) %</p>
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["EmChart"]),2) %</p>
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["RenChart"]),2) %</p>
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["ZdrowChart"]),2) %</p>
+                    <p>@System.Math.Round(Convert.ToDecimal(ViewData["PodChart"]),0),00 %</p>
+                </div>
+            </div>
+            
+            <div class="wynik-brutto-netto">
+                <p>Brutto: </p>
+
+                <p>100 %</p>
+
+            </div>
+        </div>
+
+    </div>
+        
+
+    
+
+    @* @if (Convert.ToString(ViewData["Typ"]) == "brutto")
+    {
+        
+    }
+    else
+    {
+        <div class="pie-wrap">
+
+            <div class="light-yellow entry">
+                <p>@(Convert.ToDecimal(ViewData["KwotaInit"]) / Convert.ToDecimal(ViewData["Result"]) * 100)%</p>
+                <p class="entry-value">Netto</p>
+            </div>
+
+            <div class="sky-blue entry">
+                <p>@(Convert.ToDecimal(ViewData["Chorobowe"]) / Convert.ToDecimal(ViewData["Result"]) * 100)%</p>
+                <p class="entry-value">Chorobowe</p>
+            </div>
+
+            <div class="pink entry">
+                <p>@(Convert.ToDecimal(ViewData["Emerytalne"]) / Convert.ToDecimal(ViewData["Result"]) * 100)%</p>
+                <p class="entry-value">Emerytalne</p>
+            </div>
+
+            <div class="purple entry">
+                <p>@(Convert.ToDecimal(ViewData["Rentowe"]) / Convert.ToDecimal(ViewData["Result"]) * 100)%</p>
+                <p class="entry-value">Rentowe</p>
+            </div>
+
+            <div class="green entry">
+                <p>@(Convert.ToDecimal(ViewData["Zdrowotne"]) / Convert.ToDecimal(ViewData["Result"]) * 100)%</p>
+                <p class="entry-value">Zdrowotne</p>
+            </div>
+
+            <div class="wheat entry">
+                <p>@(Convert.ToDecimal(ViewData["PodatekDochodowy"]) / Convert.ToDecimal(ViewData["Result"]) * 100)%</p>
+                <p class="entry-value">Podatek dochodowy</p>
+            </div>
+
+        </div> *@
+    
+
+
+</body>
+
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+@*@Model.WysKoszty(Model.Miejsce, Model.Koszty);*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

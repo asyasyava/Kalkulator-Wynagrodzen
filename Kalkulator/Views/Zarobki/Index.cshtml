@@ -1,0 +1,102 @@
+﻿@model Kalkulator.Models.Zarobki
+
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<head>
+    <link href="/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+
+<header>
+    <h1>Kalkulator wynagrodzeń</h1>
+</header>
+
+<hr />
+<body>
+    <div class="page-content">
+        <form asp-action="Wyniki" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="input-content">
+            <div class="form-group">
+                    <div class="inputs">
+                        <div class="content-parts">
+                            <div class="selection">
+                                <div class="parameter">
+                                    <input asp-for="Typ" type="radio" value="brutto" checked="checked"/>
+                                    <p class="text-parameter">Brutto</p>
+                                </div>
+                                <div class="parameter">
+                                    <input asp-for="Typ" type="radio" value="netto" />
+                                    <p class="text-parameter">Netto</p>
+                                </div>
+
+                                @* <span asp-validation-for="Typ" class="text-danger"></span> *@
+                            </div>
+                            <div class="kwota-pln1">
+                                <p>Kwota: </p>
+                                <div class="kwota-pln2">
+                                    <input asp-for="KwotaInit" placeholder="Wprowadź kwotę" />
+                                    <p class="pln">PLN</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-parts">
+                            <div class="selection">
+                                <div class="parameter">
+                                    <input asp-for="Pow26" type="checkbox" value="True" />
+                                    <p class="text-parameter">Ukończony 26 rok życia </p>
+                                </div>
+                                <div class="parameter">
+                                    <input asp-for="Miejsce" type="checkbox" value="True" />
+                                    <p class="text-parameter">Praca w miejscu zamieszkania </p>
+                                </div>
+                            </div>
+                            <div class="kwota-pln1">
+                                <p>Darowizny: </p>
+                                <div class="kwota-pln2">
+                                    <input asp-for="Darowizny" placeholder="Darowizny" />
+                                    <p class="pln">PLN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-calculate">
+                        <input type="submit" value="Oblicz" class="btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+            
+            @* <p>Kwota: @Model.Kwota</p>
+            <p>Chorobowe: @System.Math.Round(Model.Chorobowe,2)</p>
+            <p>Emerytalne: @System.Math.Round(Model.Emerytalne,2)</p>
+            <p>Rentowe: @System.Math.Round(Model.Rentowe,2)</p>
+            <p>Po ZUSie: @Model.PoZUS</p>
+            <p>Zdrowotne: @System.Math.Round(Model.Zdrowotne,2)</p>
+            <p>Koszty: @Model.Koszty()</p>
+            <p>Darowizna: @Model.Darowizny</p>
+            <p>Podatek dochodowy: @System.Math.Round(Model.PodatekDochodowy(),2)</p>
+            <p>@if(Model.Typ=="brutto")
+                {
+                <p>Netto:</p> @System.Math.Round(Model.Kwota - Model.Rentowe - Model.Chorobowe - Model.Emerytalne - Model.Zdrowotne - Model.Darowizna(),2)
+                }
+                else {<p>Brutto: @System.Math.Round(Model.Kwota,2)</p>}
+            </p> *@
+           
+    </div>
+    @* <div>
+        <a asp-action="Wyniki">Wyniki</a>
+    </div> *@
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+
+

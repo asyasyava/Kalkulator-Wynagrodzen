@@ -1,0 +1,308 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+    color: black;
+}
+
+
+:root {
+    --textcolor: #3b3436;
+    --lightcolor: #e5c8d2;
+    --darkcolor: #907e84;
+}
+
+
+header {
+    width: 100%;
+    min-height: 100px;
+    background-color: var(--darkcolor);
+    display: flex;
+    justify-content: space-between;
+}
+
+header>div {
+    font-size: 10px;
+}
+
+header>div:hover {
+    font-size: 300px;
+    background-color: var(--darkcolor);
+}
+
+h1 {
+    padding: 20px 50px;
+}
+
+body {
+    font-size: 28px;
+    background-color: var(--lightcolor);
+}
+
+
+.input-content {
+    position: relative;
+    margin: 80px auto;
+    width: 80%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--darkcolor);
+    border: solid;
+    border-color: var(--textcolor);
+    border-radius: 20px;
+}
+
+input[type="radio"] {
+    transform: scale(1.1);
+    accent-color: var(--lightcolor);
+    position: relative;
+    left: -35px;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--lightcolor);
+    position: relative;
+    left: -40px;
+}
+
+.inputs {
+    display: flex;
+    min-height: 250px;
+    justify-content: space-around;
+}
+
+.content-parts {
+    min-height: 300px;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.text-parameter {
+    position: relative;
+    left: -75px;
+}
+
+.selection {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.parameter {
+    display: flex;
+}
+
+
+.kwota-pln1 {
+    display: flex;
+    justify-content: space-around;
+    font-size: 32px;
+}
+
+.kwota-pln2 {
+    display: flex;
+    font-size: 32px;
+}
+
+.pln {
+    font-size: 24px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+input {
+    font-size: 24px;
+    width: 180px;
+    background-color: white;
+    color: #1F1F1F;
+}
+
+.button-calculate {
+    margin: 10px auto 30px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-primary {
+    font-size: 32px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--textcolor);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: var(--lightcolor);
+    position: absolute;
+    color: black;
+    height: 53px;
+    width: 185px;
+    box-shadow: 0px 0px 24px 0px rgba(229, 200, 210, 1);
+    transition: 0.5s;
+}
+
+.wyniki-skladki {
+    font-size: 28px;
+    margin: 30px 50px;
+    background-color: var(--darkcolor);
+    width: 600px;
+    padding: 20px;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    border: solid;
+    border-color: var(--textcolor);
+    border-radius: 20px;
+    box-shadow: 7px 7px 24px 0px rgba(59, 52, 54, 1);
+}
+
+
+.wyniki {
+    display: flex;
+    justify-content: space-around;
+}
+
+.wyniki-opis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.wyniki-wartosci {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.wynik-brutto-netto {
+    font-size: 32px;
+    margin-left: 50px;
+    background-color: var(--textcolor);
+    width: 600px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    box-shadow: 7px 7px 24px 0px rgba(59, 52, 54, 1);
+}
+
+.wynik-brutto-netto>p {
+        color: var(--lightcolor);
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pie-wrap {
+    border: 2px solid lightgrey;
+    width: 400px;
+    height: 400px;
+    margin: 10% 50px;
+    position: relative;
+    border-radius: 50%;
+    color: black;
+    overflow: hidden;
+}
+
+    .pie-wrap .entry {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+/* *the individual entries* */
+
+.sky-blue {
+    background-color: lightskyblue;
+    height: 50%;
+    width: 50%;
+    display: block;
+}
+
+.light-yellow {
+    background-color: lightyellow;
+    height: 50%;
+    width: 50%;
+}
+
+.pink {
+    background-color: pink;
+    height: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 50%;
+    clip-path: polygon(0 0, 100% 0%, 0% 100%);
+}
+
+.purple {
+    background-color: purple;
+    height: 50%;
+    width: 50%;
+    right: 0;
+    top: 0;
+    position: absolute;
+    clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
+}
+
+.green {
+    background-color: limegreen;
+    height: 50%;
+    width: 50%;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.wheat {
+    background-color: wheat;
+    height: 50%;
+    width: 50%;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+
+.pie-wrap .purple p {
+    position: absolute;
+    top: 140px;
+    color: white;
+}
+
+    .pie-wrap .purple p:first-child {
+        top: 120px;
+    }
+
+.pie-wrap .green p {
+    position: absolute;
+    top: 20px;
+}
+
+    .pie-wrap .green p:first-child {
+        top: 0px;
+    }
+
+.pie-wrap .pink p, .pie-wrap .wheat p {
+    position: absolute;
+    left: 20px;
+    top: 80px;
+}
+
+.pie-wrap .pink, .pie-wrap .wheat {
+    justify-content: flex-start;
+}
+
+    .pie-wrap .pink p:first-child, .pie-wrap .wheat p:first-child {
+        top: 100px;
+    }
